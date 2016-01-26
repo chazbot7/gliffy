@@ -1,11 +1,15 @@
 <?php
 $wgExtensionCredits['parserhook'][] = array(
-  'name'         => 'Gliffy',
+  'name'         => 'Gliffy Public',
   'version'      => '1.0',
-  'author'       => 'Nick Townsend', 
-  'url'          => 'http://www.mediawiki.org/wiki/Extension:Gliffy',
+  'author'       => 'chazbot7', 
+  'url'          => 'http://www.mediawiki.org/wiki/Extension:Gliffy_Public',
   'description'  => 'Render public Gliffy diagrams'
 );
+
+// This extensions was completely based on Nick Townsend's "Gliffy" extenion on GitHub.
+// Link: https://github.com/townsen/gliffy
+// I made edits and reuploaded because the project was not being updated on GitHub and no longer worked.
  
 if ( defined( 'MW_SUPPORTS_PARSERFIRSTCALLINIT' ) ) {
   $wgHooks['ParserFirstCallInit'][] = 'gliffySetup';
@@ -27,8 +31,6 @@ function gliffyRender( $input, $args, $parser) {
     $html = <<<HTML
 <script src="/extensions/Gliffy/embedGliffy.js" type="text/javascript"></script>
 <script type="text/javascript"> embedGliffy('$did'); </script>
-<br>
-<a href="https://www.gliffy.com/go/html5/$did" target="_blank"><img class="gliffyDiagram" src="/extensions/Gliffy/gliffy.gif" width="100px" style="margin:0;" align="left" /></a>
 <br>
 HTML;
   }
